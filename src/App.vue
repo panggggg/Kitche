@@ -1,24 +1,27 @@
 <template>
-  <div id="app">
+  <div>
     <navbar/>
-    <home/>
+    <div class="app">
+    <router-view/>
+    </div>
     <Footer/>
   </div>
 </template>
 
 <script>
 import Navbar from './components/navbar/Navbar.vue'
-import Home from './components/pages/HomePage.vue'
 import Footer from './components/footer/Footer.vue'
+// import HomePage from './components/pages/HomePage.vue'
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Navbar,
-    Home,
-    Footer
+    Footer,
+    // HomePage
   }
 }
 </script>
+
 
 <style>
 #app {
@@ -27,6 +30,39 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-color: #8A736C;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+
+.nav{
+    background-color:  #8A736C;
+}
+
+.header{
+    font-family: 'Dancing Script';
+    padding-left: 50px;
+}
+
+.nav-item{
+    font-family: 'Athiti';
+    font-size: 20px;
+}
+
+.app {
+   background-color: #f8ecdf;
+   font-weight: bold;
+  color: #2c3e50;
+  align-items: center;
 }
 </style>

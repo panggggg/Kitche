@@ -6,15 +6,17 @@
         <div class="m-10">
         <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="nav-item">
-            <b-nav-item href="#" >หน้าแรก</b-nav-item>
-            <b-nav-item href="#" >เมนูอาหาร</b-nav-item>
+            <router-link to="/home">หน้าแรก</router-link>
+            <router-link to="/menu" class="">เมนูอาหาร</router-link>
         </b-navbar-nav>
         </b-collapse>
         </div>
         <div class="p-10">
-        <b-button variant="light">เข้าสู่ระบบ</b-button>
+        <!-- <b-button variant="light">เข้าสู่ระบบ</b-button> -->
         </div>
     </b-navbar>
+    </div>
+    <div>
     </div>
     </div>
 </template>
@@ -28,15 +30,16 @@ export default {
 <style>
 .nav{
     background-color:  #8A736C;
-    margin-left: 100px;
 }
 
 .header{
     font-family: 'Dancing Script';
+    padding-left: 50px;
 }
 
 .nav-item{
     font-family: 'Athiti';
     font-size: 20px;
+    margin-left: 10px;
 }
 </style>

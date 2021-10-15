@@ -1,5 +1,5 @@
 <template>
-<div class="mt-5">
+<div class="footer">
   <v-footer
     dark
     padless
@@ -42,5 +42,8 @@ export default {
 </script>
 
 <style>
-
+.footer{
+  background-color:  #8A736C;
+  font-family: 'Dancing Script';
+}
 </style>
