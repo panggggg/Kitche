@@ -27,7 +27,7 @@
           </b-row>
           </b-col>
         </b-row>
-            <home-page-card/>
+            <menu-page-card/>
             <div class="overflow-auto">
             <div class="m-2">
               <b-pagination v-model="currentPage" pills :total-rows="rows" size="sm" align="center" ></b-pagination>
@@ -38,28 +38,18 @@
 </template>
 
 <script>
-import axios from 'axios'
-import homePageCard from '../cards/Homepage-card.vue'
+
+import MenuPageCard from '../cards/MenuPage-card.vue'
 export default {
     name: "Home",
     components: {
-    homePageCard
+    MenuPageCard
   },
   data(){
     return{
       rows: 100,
-      currentPage: 1,
-      allMenu: []
+      currentPage: 1
     }
-  },
-  mounted() {
-    axios
-    .get('http://localhost:3000/menus')
-    .then(res => {
-      const menu = res.data
-      this.allMenu 
-      console.log(menu)
-    })
   }
 }
 </script>
