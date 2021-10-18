@@ -15,7 +15,7 @@
       <carousel/>
       </div>
       <div class="container mt-5">
-          <h1 :style="{ fontFamily: 'Dancing Script', fontSize: '70px' }">Popular Menu</h1>
+          <h1 :style="{ fontFamily: 'Athiti', fontSize: '70px' }" class="center">เมนูยอดนิยม</h1>
             <home-page-card/>
       </div>
   </div>

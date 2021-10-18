@@ -6,8 +6,9 @@
         <div class="m-10">
         <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="nav-item">
-            <router-link to="/home">หน้าแรก</router-link>
-            <router-link to="/menu" class="">เมนูอาหาร</router-link>
+            <router-link to="/home">หน้าแรก</router-link>          |
+            <router-link to="/menu" class="">เมนูอาหาร</router-link> |
+            <router-link to="" class="">รายการโปรด</router-link>
         </b-navbar-nav>
         </b-collapse>
         </div>
@@ -41,5 +42,9 @@ export default {
     font-family: 'Athiti';
     font-size: 20px;
     margin-left: 10px;
+}
+
+.nav-item.active{
+    color: #8A736C;
 }
 </style>
