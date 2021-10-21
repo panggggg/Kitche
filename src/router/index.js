@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import HomePage from '../components/pages/HomePage'
 import Menu from '../components/pages/Menus'
 import Cook from '../components/pages/Recipe'
+import Login from '../components/pages/LoginPage'
+import Register from '../components/pages/Register'
 
 Vue.use(VueRouter)
 
@@ -23,9 +25,19 @@ const routes = [
     component: Menu
   },
   {
-    path: '/cooking/:menuName',
+    path: '/cooking/:menuName/:id',
     name: 'Cook',
     component: Cook
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register
   },
 ]
 

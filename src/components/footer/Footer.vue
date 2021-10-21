@@ -22,13 +22,13 @@
         </v-btn>
       </v-card-text>
 
-      <v-card-text class="white--text pt-0">
+      <v-card-text class="white--text">
       </v-card-text>
 
       <v-divider></v-divider>
 
-      <v-card-text class="white--text">
-        {{ new Date().getFullYear() }} — <strong>Kitche</strong>
+      <v-card-text class="white--text ">
+        {{ new Date().getFullYear() }} — <strong class="text-center">Kitche</strong>
       </v-card-text>
     </v-card>
   </v-footer>

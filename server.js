@@ -2,6 +2,7 @@ const express = require('express')
 const port = process.env.PORT || 3000
 const mongoose = require('mongoose')
 const menu = require('./src/models/menuModel')
+const user = require('./src/models/userModel')
 const bodyParser = require('body-parser')
 const app = express()
 

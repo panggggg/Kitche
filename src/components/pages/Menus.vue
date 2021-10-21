@@ -12,7 +12,7 @@
           <b-col class="mt-3 ml-10">
           <b-row>
           <b-col>
-          <span><b-form-input size="sm" class="mr-sm-2 w-200 mt-3 mb-2  flex-end" placeholder="Search">
+          <span><b-form-input size="sm" class="mr-sm-2 w-200 mt-3 mb-2 " placeholder="Search" v-model="search">
             <span>
              <b-button size="sm" class="mr-150" :style="{backgroundColor: '#8A736C'}">
             <i class="fas fa-search"></i>
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-
+import axios from 'axios'
 import MenuPageCard from '../cards/MenuPage-card.vue'
 export default {
     name: "Home",
@@ -48,9 +48,24 @@ export default {
   data(){
     return{
       rows: 100,
-      currentPage: 1
+      currentPage: 1,
+      search: ''
     }
-  }
+  },
+  mounted() {
+    axios
+    .get('http://localhost:3000/menus')
+    .then(res => {
+      this.allMenu = res.data
+    })
+  },
+  // computed: {
+  //   searchMenu(){
+  //     return this.allMenu.filter((menu) => {
+  //       return menu.menuName.includes(this.search)
+  //     })
+  //   }
+  // }
 }
 </script>
 

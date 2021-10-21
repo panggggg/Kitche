@@ -2,7 +2,7 @@
   <div>
                 <b-row cols="4" class="ml-5 justify-item-center">
                     <b-col v-for="menu in allMenu" :key="menu">
-                        <div class="menu">
+                        <div class="menu text-center">
                             <b-card
                             :title= "menu.menu_name"
                             :img-src= "menu.pic_url"
@@ -16,7 +16,7 @@
                         </b-button>
                           </b-col>
                           <b-col>
-                       <b-button size="sm" @click="cooking(menu.menuName)" id="menu.menuName">สูตรอาหาร</b-button>
+                       <b-button size="sm" @click="cooking(menu.menu_name, menu._id)" id="menu.menu_name">สูตรอาหาร</b-button>
                           </b-col>
                         </b-row>
                         </b-card>
@@ -42,8 +42,8 @@ export default {
       }
   },
   methods: {
-    cooking(paramMenuName){
-      router.push(`/cooking/${paramMenuName}`)
+    cooking(paramMenuName, id){
+      router.push(`/cooking/${paramMenuName}/${id}`)
       router.go()
     }
   },
@@ -52,7 +52,6 @@ export default {
     .get('http://localhost:3000/menus')
     .then(res => {
       this.allMenu = res.data
-      console.log(this.allMenu)
     })
   }
 }
