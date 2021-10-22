@@ -19,7 +19,7 @@ exports.create_a_user = (req, res) => {
 }
 
 exports.read_a_user = (req, res) => {
-    User.findById(req.params.userId, (err, user) => {
+    User.findById(req.params.id, (err, user) => {
         if(err)
             res.send(err)
         res.send(user)

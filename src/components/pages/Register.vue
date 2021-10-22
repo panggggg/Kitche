@@ -4,6 +4,7 @@
     <div class="bgcard " style="border-radius: 25px;">
   <div  class="card-body" style="padding: 30px;">
   <h3 class="text-center" :style="{fontSize: '60px'}">สมัครสมาชิก</h3>
+  <form>
   <div class="" :style="{fontSize: '20px'}">
     <b-row class="m-5" cols="2">
         <b-col class="text-left">
@@ -36,6 +37,7 @@
         <b-button size="sm" :style="{backgroundColor: '#D3C0AC', fontSize: '20px', color: '#695853'}" @click="addToDatabase" >สมัครสมาชิก</b-button>
         </div>
   </div>
+  </form>
   </div></div>
   </div>
   </div>
@@ -59,7 +61,7 @@ export default {
         username: '',
         password: '',
       },
-      msg: ''
+      msg: '',
     };
   },
   methods: {
@@ -85,7 +87,7 @@ export default {
       .then((res) => {
         console.log(res)
         alert('สมัครเสร็จเรียบร้อย')
-        router.push(`/home`)
+        router.push(`/login`)
         router.go()
       })
       .catch((err) => {

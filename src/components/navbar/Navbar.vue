@@ -17,19 +17,6 @@
                  <b-button variant="light" size="sm" @click="login">เข้าสู่ระบบ</b-button>
             </b-col>
         </b-row>
-        <!-- <b-navbar-brand class="header" :style="{ color: 'white', fontSize: '50px' }">Kitche</b-navbar-brand>
-        <div class="m-10">
-        <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav class="nav-item">
-            <b-button variant="light" size="sm" class="ml-10" @click="home">หน้าแรก</b-button>
-            <b-button variant="light" size="sm" class="ml-10" @click="menu">เมนูอาหาร</b-button>
-            <b-button variant="light" size="sm" class="ml-10" @click="favourite">รายการโปรด</b-button>
-        </b-navbar-nav>
-        </b-collapse>
-        </div>
-        <div class="p-10 d-flex justify-content-end">
-        <b-button variant="light" size="sm" @click="login">เข้าสู่ระบบ</b-button>
-        </div> -->
     </b-navbar>
     </div>
     <div>
@@ -44,6 +31,11 @@ const router = new Router({
 })
 export default {
     name: 'Navbar',
+    data() {
+        return{
+
+        }
+    },
     methods: {
         login(){
             router.push(`/login`)
