@@ -1,4 +1,5 @@
 <template>
+<form>
 <div class="login container p-5">
    <div class="d-flex justify-content-center">
     <div class="card text-center" style="border-radius: 25px;" >
@@ -24,6 +25,7 @@
 </div>
   </div>
 </div>
+</f
 </template>
 <script>
 import axios from 'axios'
@@ -39,12 +41,16 @@ export default {
       email:null,
       passsword:null,
       },
+      login_user: []
     };
   },
   methods: {
     async login(){
-      let result = await axios.get(`http://localhost:3000/user`)
-      console.log(result)
+      const response = await axios.post('http://localhost:3000/login', {
+        email: this.info.email,
+        passsword: this.info.passsword
+      })
+      console.log(response)
     },
     register(){
       router.push(`/register`)

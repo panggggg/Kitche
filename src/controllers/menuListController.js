@@ -19,10 +19,10 @@ exports.create_a_menu = (req, res) => {
     })
 }
 
-exports.read_a_menu = async (req, res) => {
-   await Menu.findById(req.params.menuId, (err, menu) => {
+exports.read_a_menu = (req, res) => {
+    Menu.findById({ _id: req.params.id }, (err, user) => {
         if(err)
             res.send(err)
-        res.send(menu)
+        res.send(user)
     })
 }

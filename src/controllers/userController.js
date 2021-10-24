@@ -25,3 +25,11 @@ exports.read_a_user = (req, res) => {
         res.send(user)
     })
 }
+
+exports.read_a_email = (req, res) => {
+    User.findOne(req.params.email, (err, email) => {
+        if(err)
+            res.send(err)
+        res.send(email)
+    })
+}
