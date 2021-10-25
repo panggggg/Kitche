@@ -29,6 +29,15 @@ export default {
     components: {
     Carousel,
     homePageCard
+  },
+  created(){
+      if(localStorage.getItem('token') === null){
+        this.$router.push(`/login`)
+        this.$router.go()
+      }
+  },
+  methods: {
+    
   }
 }
 </script>

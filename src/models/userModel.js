@@ -12,6 +12,7 @@ const UserShema = new Schema({
     },
     email: {
         type: String,
+        unique: true,
         required: 'กรุณากรอกอีเมล'
     },
     mobile_no: {

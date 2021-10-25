@@ -18,6 +18,7 @@
         <b-col>
             <label for="email" class="form-label">อีเมล</label>
             <input type="email" class="form-control " id="email" placeholder="กรุณากรอกอีเมล"  v-model="info.email" required>
+            <span style="font-size: 15px; color: #B9344C">{{error}}</span>
         </b-col>
         <b-col>
             <label for="mobileNo" class="form-label">เบอร์โทร</label>
@@ -30,7 +31,7 @@
         <b-col>
             <label for="password" class="form-label">รหัสผ่าน</label>
             <input type="password" class="form-control" id="password" placeholder="กรุณากรอกรหัสผ่าน"  v-model="info.password" required>
-            <span style="font-size: 15px">{{msg}}</span>
+            <span style="font-size: 15px; color: #B9344C">{{msg}}</span>
         </b-col>
     </b-row>
     <div class="text-center mt-3 mb-3">
@@ -62,6 +63,7 @@ export default {
         password: '',
       },
       msg: '',
+      error: ''
     };
   },
   methods: {
@@ -73,25 +75,23 @@ export default {
         this.msg = '*กรุณากรอกรหัสผ่านอย่างน้อย 6 ตัว'
       }
       else{
-        let newUser = {
+      axios.post('http://localhost:3000/user', {
         first_name: this.info.firstName,
         last_name: this.info.lastName,
         email: this.info.email,
         mobile_no: this.info.mobileNo,
         username: this.info.username,
         password: this.info.password
-      }
-      console.log(newUser)
-
-      axios.post('http://localhost:3000/user', newUser)
-      .then((res) => {
+      })
+      .then(res => {
         console.log(res)
-        alert('สมัครเสร็จเรียบร้อย')
+        this.error = ''
         router.push(`/login`)
         router.go()
       })
-      .catch((err) => {
-        console.log(err)
+      .catch(err => {
+        console.log(err.response)
+        this.error = err.response.data.error
       })
       }
     }

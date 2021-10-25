@@ -11,11 +11,12 @@ module.exports = (app) => {
     .get(menuList.read_a_menu)
 
     app.route('/user')
-    .get(userList.list_all_user)
+    // .get(userList.list_all_user)
+    .get(userList.user_info)
     .post(userList.create_a_user)
 
     app.route('/user/:id')
-    .get(userList.read_a_user)
+    .get(userList.read_a_user_by_id)
 
     app.route('/login')
     .post(login.user_login)

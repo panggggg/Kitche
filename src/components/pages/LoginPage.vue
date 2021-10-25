@@ -1,5 +1,4 @@
 <template>
-<form>
 <div class="login container p-5">
    <div class="d-flex justify-content-center">
     <div class="card text-center" style="border-radius: 25px;" >
@@ -14,6 +13,7 @@
 <div class="mb-3" >
   <label for="formGroupExampleInput2" style="font-size: 15pt" class="form-label">รหัสผ่าน</label><br>
   <input type="password" class="form-control" style="font-size: 18sm" id="formGroupExampleInput2" placeholder="รหัสผ่าน" require v-model="info.password">
+  <span style="font-size: 15px; color: #B9344C" class="text-left">{{error}}</span>
 </div>
     <br>
     <button class="bt" type="button" style="font-size: 12pt" v-on:click="login" >เข้าสู่ระบบ</button>
@@ -25,7 +25,6 @@
 </div>
   </div>
 </div>
-</f
 </template>
 <script>
 import axios from 'axios'
@@ -39,18 +38,32 @@ export default {
     return {
       info:{
       email:null,
-      passsword:null,
+      password:null,
       },
-      login_user: []
+      error: ''
     };
   },
   methods: {
     async login(){
-      const response = await axios.post('http://localhost:3000/login', {
+      let user = {
         email: this.info.email,
-        passsword: this.info.passsword
+        password: this.info.password
+      }
+      await axios.post('http://localhost:3000/login', user)
+      .then(res => {
+        if(res.status === 200){
+          console.log(res)
+          localStorage.setItem('token', res.data.token)
+          router.push(`/home`)
+          router.go()
+        }
       })
-      console.log(response)
+      .catch(err => {
+        console.log(err.response)
+        this.error = err.response.data.error
+      })
+      // router.push(`/home`)
+      // router.go()
     },
     register(){
       router.push(`/register`)

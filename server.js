@@ -5,7 +5,11 @@ const menu = require('./src/models/menuModel')
 const user = require('./src/models/userModel')
 const login = require('./src/models/loginModel')
 const bodyParser = require('body-parser')
+var cors = require('cors')
+
 const app = express()
+
+app.use(cors())
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*')

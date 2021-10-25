@@ -5,6 +5,7 @@ import Menu from '../components/pages/Menus'
 import Cook from '../components/pages/Recipe'
 import Login from '../components/pages/LoginPage'
 import Register from '../components/pages/Register'
+import AddMenu from '../components/pages/AddMenuPage'
 
 Vue.use(VueRouter)
 
@@ -38,6 +39,11 @@ const routes = [
     path: '/register',
     name: 'Register',
     component: Register
+  },
+  {
+    path: '/addmenu',
+    name: 'AddMenu',
+    component: AddMenu
   },
 ]
 
