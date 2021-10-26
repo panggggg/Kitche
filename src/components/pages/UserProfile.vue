@@ -12,18 +12,6 @@
   </div>
 </div>
 
-div class="card text-center">
-  <h3 class="card-header" style="background-color:#695853; color: #FFFFFF; font-size:40px">
-    ข้อมูลผู้ใช้
-  </h3>
-  <div class="bgcard">
-    <p class="card-title">ชื่อ : {{info.firstname}}</p>
-    <p class="card-text"> นามสกุล : {{info.lastname}}</p>
-    <p class="card-text">อีเมล : {{info.email}}</p>
-    <p class="card-text"> ชื่อผู้ใช้ : {{info.username}}</p>
-  </div>
-</div>
-
 </div>
 
 </template>

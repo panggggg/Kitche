@@ -3,11 +3,11 @@
     <div class="">
     <b-navbar>
         <b-navbar-brand class="header" :style="{ color: 'white', fontSize: '50px' }">Kitche</b-navbar-brand>
-        <b-row class="col-10 nav-item">
+        <b-row class="col-8 nav-item">
             <b-col class="col-md-12 mt-3">
             </b-col>
              <b-col class="nav-link text-center">
-                <a variant="light" size="md" class="ml-10" @click="home" style="color:white">หน้าแรก</a>
+                <p variant="light" size="md" class="ml-10" @click="home" style="color:white">หน้าแรก</p>
                 </b-col>
             <b-col class="nav-link text-center">
                 <p variant="light" size="md" class="ml-10" @click="allMenu"  style="color:white">เมนูอาหาร</p>

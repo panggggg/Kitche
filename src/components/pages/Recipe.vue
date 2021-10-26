@@ -1,5 +1,5 @@
 <template>
-<div class="container p-2">
+<div class="container p-2 pb-5">
     <div class="font">
     <div class="text-center">
         <h1 class="m-10" :style="{fontSize: '70px'}">{{menuName}}</h1>

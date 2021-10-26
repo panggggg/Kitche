@@ -48,7 +48,7 @@
     </b-row>
 
     <div class="text-center mt-3 mb-3">
-        <b-button size="md" class="bt m-2" @click="save" >ตกลง</b-button>
+        <b-button size="md" class="bt m-2" @click="save()" >ตกลง</b-button>
         <b-button size="md" class="bt m-2" >ยกเลิก</b-button>
         </div>
   </div>
@@ -75,7 +75,8 @@ export default {
         writer: null,
         image: null,
       },
-      username: ''
+      username: '',
+      allMenu: []
     };
   },
   methods: {
@@ -91,6 +92,7 @@ export default {
         console.log(res)
         alert('เพิ่มเมนูอาหารเรียบร้อย')
         router.push(`/menu`)
+        router.go()
       })
     },
   },
@@ -100,6 +102,12 @@ export default {
             this.username = res.data.user.username
             console.log(this.username)
         })
+        axios
+        .get('http://localhost:3000/menus')
+        .then(res => {
+        this.allMenu = res.data
+        console.log(this.allMenu)
+    })
     }
   
 }
