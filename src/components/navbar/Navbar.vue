@@ -3,29 +3,50 @@
     <div class="">
     <b-navbar>
         <b-navbar-brand class="header" :style="{ color: 'white', fontSize: '50px' }">Kitche</b-navbar-brand>
-        <b-row cols-xl="7" class="mt-3 ml-5">
-            <b-col class="">
-                <b-button variant="light" size="sm" class="mt-10 d-flex justify-content-center" @click="home">หน้าแรก</b-button>
+        <b-row class="col-10 nav-item">
+            <b-col class="col-md-12 mt-3">
             </b-col>
-            <b-col>
-                <b-button variant="light" size="sm" class="ml-10" @click="menu">เมนูอาหาร</b-button>
+             <b-col class="nav-link text-center">
+                <a variant="light" size="md" class="ml-10" @click="home" style="color:white">หน้าแรก</a>
+                </b-col>
+            <b-col class="nav-link text-center">
+                <p variant="light" size="md" class="ml-10" @click="allMenu"  style="color:white">เมนูอาหาร</p>
             </b-col>
-            <b-col>
-                <b-button variant="light" size="sm" class="ml-10"  @click="favourite">รายการโปรด</b-button>
-            </b-col>
-            <b-col>
-                <b-button variant="light" size="sm" class="ml-10"  @click="addMenu">เพิ่มเมนูอาหาร</b-button>
-            </b-col>
-            <b-col>
-                 <p>{{ username }}</p>
-            </b-col>
-            <b-col v-if="!username">
-                 <b-button variant="light" size="sm" @click="login">เข้าสู่ระบบ</b-button>
-            </b-col>
-            <b-col v-if="username">
-                 <b-button variant="light" size="sm" @click="logout">ออกจากระบบ</b-button>
-            </b-col>
+            <!-- <b-col class="nav-link text-center">
+                <p variant="light" size="md" class="ml-10"  @click="fa"  style="color:white">รายการโปรด</p>
+            </b-col> -->
+            <!-- <b-col class="nav-link text-center">
+                <p variant="light" size="md" class="ml-10" @click="addMenu"  style="color:white">เพิ่มเมนูอาหาร</p>
+            </b-col> -->
+
         </b-row>
+
+         <b-col class="col-md-2 nav-item">
+                 <p variant="light" size="sm" class="ml-10 text-center mt-3"  v-if="!username" @click="login" style="color:white">เข้าสู่ระบบ</p>
+                  <div style="color: white; " class="text-left w-125">
+                  <b-nav-item-dropdown right
+                    variant="light"
+                    v-if="username"
+                    id="my-nav-dropdown"
+                    :text= username
+                    class="text-center "
+                    >
+                    <b-dropdown-item @click="profile">โปรไฟล์</b-dropdown-item>
+                    <b-dropdown-item @click="addMenu">เพิ่มเมนูอาหาร</b-dropdown-item>
+                    <b-dropdown-item>รายการโปรด</b-dropdown-item>
+                    <b-dropdown-divider></b-dropdown-divider>
+                    <b-dropdown-item @click="logout">ออกจากระบบ</b-dropdown-item>
+                    </b-nav-item-dropdown>
+                  </div>
+            <!-- <b-nav-item-dropdown right v-if="username" style="color: white" >
+          <template>
+            <em style="color: white" >สวัสดี! {{username}}</em>
+          </template>
+          <b-dropdown-item href="#">โปรไฟล์</b-dropdown-item>
+          <b-dropdown-item @click="logout">ออกจากระบบ</b-dropdown-item>
+        </b-nav-item-dropdown> -->
+            </b-col>
+
     </b-navbar>
     </div>
     <div>
@@ -56,7 +77,7 @@ export default {
             router.push(`/home`)
             router.go()
         },
-        menu(){
+        allMenu(){
             router.push(`/menu`)
             router.go()
         },
@@ -67,6 +88,10 @@ export default {
         logout(){
             localStorage.clear()
             router.push(`/login`)
+            router.go()
+        },
+        profile(){
+            router.push(`/profile`)
             router.go()
         }
     }, 

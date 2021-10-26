@@ -17,6 +17,9 @@ const MenuSchema = new Schema({
     pic_url: {
         type: String
     },
+    writer: {
+        type: String
+    },
     created_date: {
         type: Date,
         default: Date.now

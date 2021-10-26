@@ -10,13 +10,13 @@
 
 <script>
 import Navbar from './components/navbar/Navbar.vue'
-import Footer from './components/footer/Footer.vue'
+// import Footer from './components/footer/Footer.vue'
 // import HomePage from './components/pages/HomePage.vue'
 export default {
   name: "App",
   components: {
     Navbar,
-    Footer,
+    // Footer,
     // HomePage
   }
 }

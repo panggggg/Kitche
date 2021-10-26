@@ -4,7 +4,7 @@
                     <b-col v-for="menu in allMenu" :key="menu">
                         <div class="menu text-center">
                             <b-card
-                            :title= "menu.menu_name"
+                            :title= menu.menu_name
                             :img-src= "menu.pic_url"
                             style="max-width: 30rem;"
                             class="mb-2"
@@ -37,7 +37,6 @@ export default {
     name: 'MenuPageCard',
     data(){
       return{
-          fav: null,
           allMenu: []
       }
   },
@@ -52,6 +51,7 @@ export default {
     .get('http://localhost:3000/menus')
     .then(res => {
       this.allMenu = res.data
+      console.log(this.allMenu)
     })
   }
 }
