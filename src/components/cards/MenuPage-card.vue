@@ -1,7 +1,30 @@
 <template>
   <div>
+    <b-row cols="4">
+          <b-col>
+          <h1 :style="{ fontFamily: 'Athiti', fontSize: '70px'}" >เมนูอาหาร</h1>
+          </b-col>
+          <b-col>
+          </b-col>
+          <b-col>
+          </b-col>
+          <b-col class="mt-3 ml-10">
+          <b-row>
+          <b-col>
+          <span><b-form-input size="sm" class="mr-sm-2 w-200 mt-3 mb-2 " style="font-family: Athiti" placeholder="ค้นหาเมนูอาหาร" v-model="searchQuery">
+            <span>
+             <b-button size="sm" class="mr-150" :style="{backgroundColor: '#8A736C'}">
+            <i class="fas fa-search"></i>
+          </b-button>
+          </span></b-form-input></span>
+          </b-col>
+          
+          </b-row>
+          </b-col>
+        </b-row>
+
                 <b-row cols="4" class="ml-5 justify-item-center">
-                    <b-col v-for="menu in allMenu" :key="menu">
+                    <b-col v-for="menu in resultQuery" :key="menu">
                         <div class="menu text-center">
                             <b-card
                             :title= menu.menu_name
@@ -11,12 +34,13 @@
                         >
                         <b-row>
                           <b-col>
-                        <b-button variant="outline-light">
+                        <!-- <b-button variant="outline-light" v-if="username">
                             <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" width="20px"/>
-                        </b-button>
+                        </b-button> -->
+                        
                           </b-col>
                           <b-col>
-                       <b-button size="sm" @click="cooking(menu.menu_name, menu._id)" id="menu.menu_name">สูตรอาหาร</b-button>
+                       <b-button size="sm" @click="cooking(menu.menu_name, menu._id)" id="menu.menu_name" style="background-color:#8A736C">สูตรอาหาร</b-button>
                           </b-col>
                         </b-row>
                         </b-card>
@@ -37,7 +61,9 @@ export default {
     name: 'MenuPageCard',
     data(){
       return{
-          allMenu: []
+          allMenu: [],
+          username: '',
+          searchQuery: ''
       }
   },
   methods: {
@@ -53,6 +79,26 @@ export default {
       this.allMenu = res.data
       console.log(this.allMenu)
     })
+
+    axios.get('http://localhost:3000/user', {headers: {token: localStorage.getItem('token')}})
+        .then(res => {
+            this.username = res.data.user.username
+        })
+  },
+  computed: {
+    resultQuery(){
+      if(this.searchQuery){
+        return this.allMenu.filter(item => {
+          return this.searchQuery
+          .toLowerCase()
+          .split(" ")
+          .every(v => item.menu_name.toLowerCase().includes(v))
+        })
+      }
+      else {
+        return this.allMenu
+      }
+    }
   }
 }
 </script>

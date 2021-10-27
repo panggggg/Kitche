@@ -1,5 +1,7 @@
 <template>
-  <div class="pb-5">
+    <div class="container">
+    <h1 class="text-center">รายการโปรด</h1>
+    <div class="pb-5">
                 <b-row cols="4" class="ml-5 justify-item-center">
                     <b-col v-for="menu in menus" :key="menu">
                         <div class="menu text-center">
@@ -11,12 +13,12 @@
                         >
                         <b-row>
                           <b-col>
-                        <b-button variant="outline-light" class="text-right" :id="menu.id" @click="addToFavourite($event)">
+                        <b-button variant="outline-light" class="text-right">
                             <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" width="20px"/>
                         </b-button>
                           </b-col>
                           <b-col>
-                       <b-button size="sm" @click="cooking(menu.menuName, menu.id)" id="menu.menuName" style="background-color:#8A736C">สูตรอาหาร</b-button>
+                       <b-button size="sm"  id="menu.menuName" style="background-color:#8A736C">สูตรอาหาร</b-button>
                           </b-col>
                         </b-row>
                         </b-card>
@@ -24,21 +26,15 @@
                     </b-col>
                 </b-row>
             </div>
+    </div>
 </template>
 
 <script>
-
-import Router from 'vue-router'
-const router = new Router({
-    mode: "history"
-})
-
 export default {
-    name: 'homePageCard',
+    name: 'FavouritePage',
     data(){
-      return{
-          fav: null,
-          menus: [
+        return{
+            menus: [
               {
                 id: '616d35a567c4701f4ffd4491',
                 menuName: 'ราเมนหมูชาชู',
@@ -80,29 +76,11 @@ export default {
                 picURL: 'https://media.discordapp.net/attachments/860069885724065792/898170827160289340/2242ea950e215d9c.jpg'
               },
           ]
-      }
-  },
-  methods: {
-    cooking(paramMenuName, id){
-      router.push(`/cooking/${paramMenuName}/${id}`)
-      router.go()
-    },
-    addToFavourite: function(event){
-      const targetId = event.currentTarget.id
-      const menu = this.menus.filter(menu => menu.targetId === this.menus.id)
-      console.log(this.menus)
-      console.log(targetId)
-      console.log(menu)
-      this.$store.dispatch('addMenuToFav', {
-        menus: menu
-      });
+        }
     }
-  }
 }
 </script>
 
 <style>
-.menu{
-    font-family: 'Athiti';
-}
+
 </style>

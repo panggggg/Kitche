@@ -33,7 +33,7 @@
                     >
                     <b-dropdown-item @click="profile">โปรไฟล์</b-dropdown-item>
                     <b-dropdown-item @click="addMenu">เพิ่มเมนูอาหาร</b-dropdown-item>
-                    <b-dropdown-item>รายการโปรด</b-dropdown-item>
+                    <b-dropdown-item @click="favourite">รายการโปรด</b-dropdown-item>
                     <b-dropdown-divider></b-dropdown-divider>
                     <b-dropdown-item @click="logout">ออกจากระบบ</b-dropdown-item>
                     </b-nav-item-dropdown>
@@ -92,6 +92,10 @@ export default {
         },
         profile(){
             router.push(`/profile`)
+            router.go()
+        },
+        favourite(){
+            router.push(`/favourite`)
             router.go()
         }
     }, 

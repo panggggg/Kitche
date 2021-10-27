@@ -1,32 +1,7 @@
 <template>
   <div class="home">
       <div class="container">
-        <b-row cols="4">
-          <b-col>
-          <h1 :style="{ fontFamily: 'Athiti', fontSize: '70px'}" >เมนูอาหาร</h1>
-          </b-col>
-          <b-col>
-          </b-col>
-          <b-col>
-          </b-col>
-          <b-col class="mt-3 ml-10">
-          <b-row>
-          <b-col>
-          <span><b-form-input size="sm" class="mr-sm-2 w-200 mt-3 mb-2 " placeholder="Search" v-model="search">
-            <span>
-             <b-button size="sm" class="mr-150" :style="{backgroundColor: '#8A736C'}">
-            <i class="fas fa-search"></i>
-          </b-button>
-          </span></b-form-input></span>
-          </b-col>
-          <b-col class="mt-3">
-          <b-button size="sm" class="mr-150" :style="{backgroundColor: '#8A736C'}">
-            <i class="fas fa-search"></i>
-          </b-button>
-          </b-col>
-          </b-row>
-          </b-col>
-        </b-row>
+        
             <menu-page/>
             <div class="overflow-auto">
             <div class="m-2">

@@ -19,7 +19,7 @@
       ></b-carousel-slide>
 
       <b-carousel-slide img-src="https://media.discordapp.net/attachments/860069885724065792/898085745946935296/jajangmyeon.jpg">
-        <h1>Kitche</h1>
+        <h1></h1>
       </b-carousel-slide>
       <b-carousel-slide img-src="https://media.discordapp.net/attachments/860069885724065792/898082434057404446/spaghetti.jpg"></b-carousel-slide>
 
