@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pb-3">
     <b-row cols="4">
           <b-col>
           <h1 :style="{ fontFamily: 'Athiti', fontSize: '70px'}" >เมนูอาหาร</h1>
@@ -33,12 +33,7 @@
                             class="mb-2"
                         >
                         <b-row>
-                          <b-col>
-                        <!-- <b-button variant="outline-light" v-if="username">
-                            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" width="20px"/>
-                        </b-button> -->
-                        
-                          </b-col>
+                         
                           <b-col>
                        <b-button size="sm" @click="cooking(menu.menu_name, menu._id)" id="menu.menu_name" style="background-color:#8A736C">สูตรอาหาร</b-button>
                           </b-col>
@@ -47,10 +42,13 @@
                             </div>
                     </b-col>
                 </b-row>
+
+
             </div>
 </template>
 
 <script>
+
 import axios from 'axios'
 import Router from 'vue-router'
 const router = new Router({
@@ -59,6 +57,8 @@ const router = new Router({
 
 export default {
     name: 'MenuPageCard',
+    components: {
+    },
     data(){
       return{
           allMenu: [],
@@ -70,14 +70,14 @@ export default {
     cooking(paramMenuName, id){
       router.push(`/cooking/${paramMenuName}/${id}`)
       router.go()
-    }
+    },
   },
   mounted() {
     axios
     .get('http://localhost:3000/menus')
     .then(res => {
       this.allMenu = res.data
-      console.log(this.allMenu)
+      // console.log(this.allMenu)
     })
 
     axios.get('http://localhost:3000/user', {headers: {token: localStorage.getItem('token')}})
@@ -98,7 +98,7 @@ export default {
       else {
         return this.allMenu
       }
-    }
+    },
   }
 }
 </script>

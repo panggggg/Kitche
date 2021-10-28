@@ -7,7 +7,6 @@ import Login from '../components/pages/LoginPage'
 import Register from '../components/pages/Register'
 import AddMenu from '../components/pages/AddMenuPage'
 import UserProfile from '../components/pages/UserProfile'
-import FavouritePage from '../components/pages/FavouritePage'
 
 Vue.use(VueRouter)
 
@@ -51,11 +50,6 @@ const routes = [
     path: '/profile',
     name: 'UserProfile',
     component: UserProfile
-  },
-  {
-    path: '/favourite',
-    name: 'FavouritePage',
-    component: FavouritePage
   },
 ]
 

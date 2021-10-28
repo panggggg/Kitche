@@ -12,17 +12,11 @@
             <b-col class="nav-link text-center">
                 <p variant="light" size="md" class="ml-10" @click="allMenu"  style="color:white">เมนูอาหาร</p>
             </b-col>
-            <!-- <b-col class="nav-link text-center">
-                <p variant="light" size="md" class="ml-10"  @click="fa"  style="color:white">รายการโปรด</p>
-            </b-col> -->
-            <!-- <b-col class="nav-link text-center">
-                <p variant="light" size="md" class="ml-10" @click="addMenu"  style="color:white">เพิ่มเมนูอาหาร</p>
-            </b-col> -->
 
         </b-row>
 
          <b-col class="col-md-2 nav-item">
-                 <p variant="light" size="sm" class="ml-10 text-center mt-3"  v-if="!username" @click="login" style="color:white">เข้าสู่ระบบ</p>
+                 <p variant="light" size="sm" class="ml-10 text-right mt-3"  v-if="!username" @click="login" style="color:white">เข้าสู่ระบบ</p>
                   <div style="color: white; " class="text-left w-125">
                   <b-nav-item-dropdown right
                     variant="light"
@@ -31,20 +25,21 @@
                     :text= username
                     class="text-center "
                     >
-                    <b-dropdown-item @click="profile">โปรไฟล์</b-dropdown-item>
-                    <b-dropdown-item @click="addMenu">เพิ่มเมนูอาหาร</b-dropdown-item>
-                    <b-dropdown-item @click="favourite">รายการโปรด</b-dropdown-item>
+                    <b-dropdown-item @click="profile">
+                        <i class="fas fa-user"></i>
+                        โปรไฟล์
+                        </b-dropdown-item>
+                    <b-dropdown-item @click="addMenu">
+                        <i class="fas fa-plus"></i>
+                        เพิ่มเมนูอาหาร
+                        </b-dropdown-item>
                     <b-dropdown-divider></b-dropdown-divider>
-                    <b-dropdown-item @click="logout">ออกจากระบบ</b-dropdown-item>
+                    <b-dropdown-item @click="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        ออกจากระบบ
+                        </b-dropdown-item>
                     </b-nav-item-dropdown>
                   </div>
-            <!-- <b-nav-item-dropdown right v-if="username" style="color: white" >
-          <template>
-            <em style="color: white" >สวัสดี! {{username}}</em>
-          </template>
-          <b-dropdown-item href="#">โปรไฟล์</b-dropdown-item>
-          <b-dropdown-item @click="logout">ออกจากระบบ</b-dropdown-item>
-        </b-nav-item-dropdown> -->
             </b-col>
 
     </b-navbar>
@@ -94,17 +89,14 @@ export default {
             router.push(`/profile`)
             router.go()
         },
-        favourite(){
-            router.push(`/favourite`)
-            router.go()
-        }
+        
     }, 
     mounted() {
         axios.get('http://localhost:3000/user', {headers: {token: localStorage.getItem('token')}})
         .then(res => {
             this.username = res.data.user.username
         })
-    }
+    },
 }
 
 </script>

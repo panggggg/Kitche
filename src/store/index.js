@@ -1,25 +1,31 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    favourite: []
+    likes_count: 0,
+    unlike_count: 0
   },
   mutations: {
-    ADD_TO_FAV(state, menus){
-      state.favourite.push({
-        menus
-      })
-    }
+    incrementLike(state){
+      state.likes_count += 1
+    },
+    incrementUnLike(state){
+      state.unlike_count += 1
+    },
+
   },
   actions: {
-    addMenuToFav({commit}, menus){
-      commit('ADD_TO_FAV', menus)
-    }
+    
   },
   modules: {
-  }
+  },
+  getters: {
+    getLike : state => state.likes_count,
+    getUnLike: state => state.unlike_count
+  },
+  plugins: [createPersistedState()]
 })

@@ -57,24 +57,61 @@
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <!-- <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
           
-          <h6 class="text-uppercase fw-bold mb-4">
-            Products
-          </h6>
-          <p>
-            <a href="#!" class="text-reset">สูตรอาหาร</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">สูตรของว่าง</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">สูตรขนมหวาน</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">สูตรเครื่องดื่ม</a>
-          </p>
-        </div> -->
+          <h4 class="text-uppercase fw-bold mb-4 text-center" style="font-family: Athiti;">
+            ให้กำลังใจผู้สร้าง
+          </h4>
+            <b-row>
+              <b-col>
+            <div id="heart" class="text-center"></div>
+              </b-col>
+              <b-col style="font-family: Athiti">
+                <p>{{$store.getters.getLike}}</p>
+              </b-col>
+              <b-col style="font-family: Athiti">
+                <p>ผู้ถูกใจ</p>
+              </b-col>
+            </b-row>
+            <br>
+            <b-row cols="2">
+              <b-col class="text-center">
+                <b-row>
+                  <b-col>
+                <button type="button"  style="background-color: #F0526E;
+                  color:#FFFFFF;
+                  border-radius: 100px;
+                  border-color:#F0526E;"
+                   @click="incrementLike">
+                    <i class="fa fa-heart" aria-hidden="true"></i>
+                  </button>
+                  </b-col>
+                  <b-col style="font-family: Athiti;">
+                    <p>{{$store.getters.getLike}}</p>
+                  </b-col>
+                </b-row>
+              </b-col>
+              <b-col class="text-center"> 
+                 <b-row>
+                  <b-col>
+                <button type="button"  style="background-color: #F0526E;
+                color:#FFFFFF;
+                border-radius: 100px;
+                border-color:#F0526E;"
+                @click="incrementUnLike">
+                  <i class="fas fa-heart-broken" aria-hidden="true" ></i>
+                </button>
+                  </b-col>
+                  <b-col style="font-family: Athiti;">
+                    <p>{{$store.getters.getUnLike}}</p>
+                  </b-col>
+                </b-row>
+              </b-col>
+            </b-row>
+            
+          
+         
+        </div>
         <!-- Grid column -->
 
         <!-- Grid column -->
@@ -151,7 +188,15 @@
 
 <script>
 export default {
-    name: 'Footer'
+    name: 'Footer',
+    methods:{
+      incrementLike(){
+        return this.$store.commit('incrementLike')
+      },
+      incrementUnLike(){
+        return this.$store.commit('incrementUnLike')
+      }
+    }
 }
 </script>
 
@@ -159,4 +204,52 @@ export default {
 .footer{
   background-color:  #8A736C;
   font-family: 'Dancing Script';
+  color: white;
 }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+#heart {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  background-color: #F0526E;
+  animation: move 2s infinite;
+}
+
+@keyframes move {
+  from {
+    transform: rotate(45deg) scale(0, 0);
+  }
+
+  to {
+    transform: rotate(45deg) scale(1, 1);
+  }
+}
+
+#heart::before,
+#heart::after {
+  width: 20px;
+  height: 20px;
+  content: "";
+  border-radius: 50%;
+  position: absolute;
+  background-color: inherit;
+}
+
+#heart::before {
+  top: -50%;
+  left: 0;
+}
+
+#heart::after {
+  top: 0;
+  left: -50%;
+}
+
+</style>

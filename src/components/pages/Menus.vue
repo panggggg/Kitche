@@ -3,11 +3,11 @@
       <div class="container">
         
             <menu-page/>
-            <div class="overflow-auto">
+            <!-- <div class="overflow-auto">
             <div class="m-2">
               <b-pagination v-model="currentPage" pills :total-rows="rows" size="sm" align="center" ></b-pagination>
             </div>
-          </div>
+          </div> -->
       </div>
   </div>
 </template>
@@ -34,13 +34,6 @@ export default {
       this.allMenu = res.data
     })
   },
-  // computed: {
-  //   searchMenu(){
-  //     return this.allMenu.filter((menu) => {
-  //       return menu.menuName.includes(this.search)
-  //     })
-  //   }
-  // }
 }
 </script>
 
