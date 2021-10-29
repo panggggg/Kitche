@@ -28,7 +28,7 @@
                         <div class="menu text-center">
                             <b-card
                             :title= menu.menu_name
-                            :img-src= "menu.pic_url"
+                            :img-src="menu.pic_url"
                             style="max-width: 30rem;"
                             class="mb-2"
                         >
