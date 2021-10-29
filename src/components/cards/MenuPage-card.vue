@@ -11,7 +11,7 @@
           <b-col class="mt-3 ml-10">
           <b-row>
           <b-col>
-          <span><b-form-input size="sm" class="mr-sm-2 w-200 mt-3 mb-2 " style="font-family: Athiti" placeholder="ค้นหาเมนูอาหาร" v-model="searchQuery">
+          <span><b-form-input size="sm" class="mr-sm-2 w-200 mt-3 mb-2" style="font-family: Athiti" placeholder="ค้นหาเมนูอาหาร" v-model="searchQuery">
             <span>
              <b-button size="sm" class="mr-150" :style="{backgroundColor: '#8A736C'}">
             <i class="fas fa-search"></i>
