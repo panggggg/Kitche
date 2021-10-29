@@ -23,8 +23,8 @@
         <p :style="{fontSize: '20px'}">{{ menu.how_to }}</p>
     </div>
     <br>
-    <p :style="{fontSize: '20px'}" >ผู้เขียน : {{menu.writer}}</p>
-    <p :style="{fontSize: '20px'}" >วันที่เขียน : {{menu.created_date}}</p>
+    <p :style="{fontSize: '20px'}" class="text-right">ผู้เขียน : {{menu.writer}}</p>
+    <p :style="{fontSize: '20px'}" class="text-right">วันที่เขียน : {{menu.created_date}}</p>
     </div>
     </div>
 </div>
