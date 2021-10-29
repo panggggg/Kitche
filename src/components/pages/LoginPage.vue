@@ -49,7 +49,7 @@ export default {
         email: this.info.email,
         password: this.info.password
       }
-      await axios.post('http://localhost:3000/login', user)
+      await axios.post('http://localhost:8000/login', user)
       .then(res => {
         if(res.status === 200){
           console.log(res)

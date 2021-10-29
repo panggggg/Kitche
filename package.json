@@ -57,5 +57,5 @@
     "last 2 versions",
     "not dead"
   ],
-  "proxy": "http://localhost:3000/menus"
+  "proxy": "http://localhost:8000/menus"
 }

@@ -74,13 +74,13 @@ export default {
   },
   mounted() {
     axios
-    .get('http://localhost:3000/menus')
+    .get('http://localhost:8000/menus')
     .then(res => {
       this.allMenu = res.data
       // console.log(this.allMenu)
     })
 
-    axios.get('http://localhost:3000/user', {headers: {token: localStorage.getItem('token')}})
+    axios.get('http://localhost:8000/user', {headers: {token: localStorage.getItem('token')}})
         .then(res => {
             this.username = res.data.user.username
         })

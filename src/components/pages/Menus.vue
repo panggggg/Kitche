@@ -29,7 +29,7 @@ export default {
   },
   mounted() {
     axios
-    .get('http://localhost:3000/menus')
+    .get('http://localhost:8000/menus')
     .then(res => {
       this.allMenu = res.data
     })

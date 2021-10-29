@@ -75,7 +75,7 @@ export default {
         this.msg = '*กรุณากรอกรหัสผ่านอย่างน้อย 6 ตัว'
       }
       else{
-      axios.post('http://localhost:3000/user', {
+      axios.post('http://localhost:8000/user', {
         first_name: this.info.firstName,
         last_name: this.info.lastName,
         email: this.info.email,

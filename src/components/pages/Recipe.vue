@@ -22,6 +22,9 @@
     <div class="text-left">
         <p :style="{fontSize: '20px'}">{{ menu.how_to }}</p>
     </div>
+    <br>
+    <p :style="{fontSize: '20px'}" class="text-right">ผู้เขียน : {{menu.writer}}</p>
+    <p :style="{fontSize: '20px'}" class="text-right">วันที่เขียน : {{menu.created_date}}</p>
     </div>
     </div>
 </div>
@@ -40,7 +43,7 @@ export default {
     },
     mounted() {
         axios
-        .get('http://localhost:3000/menus')
+        .get('http://localhost:8000/menus')
         .then(res => {
             const menu = res.data
             this.allMenu = menu.filter((menu) => menu._id === this.id)

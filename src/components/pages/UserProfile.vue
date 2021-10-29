@@ -32,7 +32,7 @@ export default {
     }
     },
     mounted() {
-        axios.get('http://localhost:3000/user', {headers: {token: localStorage.getItem('token')}})
+        axios.get('http://localhost:8000/user', {headers: {token: localStorage.getItem('token')}})
         .then(res => {
             this.info.firstname = res.data.user.first_name
             this.info.lastname = res.data.user.last_name
