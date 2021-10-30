@@ -10,9 +10,9 @@
                             class="mb-2"
                         >
                         <b-row>
-                          <b-col>
+                          <!-- <b-col>
                        <b-button size="sm" @click="cooking(menu.menuName, menu.id)" id="menu.menuName" style="background-color:#8A736C">สูตรอาหาร</b-button>
-                          </b-col>
+                          </b-col> -->
                         </b-row>
                         </b-card>
                             </div>
